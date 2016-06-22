@@ -4,6 +4,8 @@
 #include <string.h>
 #include <math.h>
 
+//in retrospect, it was a huge mistake trying to split a delta calc and
+//its display function.
 
 //struct encapsulating split based on theorem 2.8
 struct MuffinSplit {
@@ -39,6 +41,11 @@ struct MuffinSplit {
 struct Fraction {
     int num;
     int denom;
+};
+
+struct Interval {
+    struct Fraction maxDelta;
+    struct Fraction minDelta;
 };
 
 struct Fraction fractionMin(struct Fraction a, struct Fraction b) {
@@ -139,6 +146,11 @@ struct Fraction calcSmallDeltaLB(int m, int s, int * minX, int * minY) {
 
     for(x = 1; x < s; x++) {
         for(y = 1; y < s; y++) {
+
+            if(m-y == 0) {
+                continue;
+            }
+
             if(x*y > s || (x*y) % (m-y) != 0) {
                 continue;
             }
@@ -162,73 +174,18 @@ struct Fraction calcSmallDeltaLB(int m, int s, int * minX, int * minY) {
         }
     }
 
-    return maxPart;
+    return fractionSimplify(maxPart);
 }
 
-//figure stuff out using our paper
-int gasarchSplit(int m, int s, struct MuffinSplit *gSplit) {
-    gSplit->m = m;
-    gSplit->s = s;
-    gSplit->foundSplit = 0;
-    gSplit->specialCase = 0;
-
-    //special case that muffins divides students, our delt is going to
-    //be 1, set special case (for printing), and return noting that we
-    //found a split
-    if(m % s == 0) {
-        gSplit->deltNum = 1;
-        gSplit->deltDenom = 1;
-        gSplit->foundSplit = 1;
-        gSplit->specialCase = 1;
-
-        return 0;
+//print out information about
+void printSmallDeltBound(struct Fraction ub, struct Fraction lb, int x, int y, int m, int s) {
+    printf("\tmsUB: f(%d, %d) <= %d/%d\n", m, s, ub.num, ub.denom);
+    if(x != 0 && y != 0) {
+        printf("\tmsLB: %d/%d <= f(%d,%d), x: %d, y: %d\n", lb.num, lb.denom, m, s, x, y);
     }
+}
 
-    //thm 2.1.2
-    if(s % (2*m) == 0) {
-
-        gSplit->deltNum = 1;
-        gSplit->deltDenom = 2;
-        gSplit->foundSplit = 1;
-        gSplit->specialCase = 1;
-
-        return 0;
-
-    }
-
-    //thm 2.1.4-5
-    if(m == 1 || m == 2 && s % 2 == 1) {
-        gSplit->deltNum = 1;
-        gSplit->deltDenom = s;
-        gSplit->foundSplit = 1;
-        gSplit->specialCase = 1;
-
-        return 0;
-    }
-
-    double fracPart = 2*((float)m)/s;
-
-    //deltas based on 2.2.2
-    struct Fraction delt1 = {m, (s*ceil(fracPart))};
-    struct Fraction delt2 = {(s * floor(fracPart))-m, (s * floor(fracPart))};
-
-    //calc UB for small m/s
-    struct Fraction smallDeltUB = calcSmallDeltaUB(m, s);
-
-    //calc LB for small m/s
-    int x, y;
-    struct Fraction smallDeltLB = calcSmallDeltaLB(m, s, &x, &y);
-
-    
-    struct Fraction minDelt = fractionMin(delt1, delt2);
-
-    //if small delta is less than 1/3, use it else keep delta from 2.2.2
-    if (fracToVal(smallDelt) < .33333) {
-        minDelt = smallDelt;
-    }
-
-    minDelt = fractionSimplify(minDelt);
-
+int calcLargeDeltOneUB(struct Fraction minDelt, struct MuffinSplit *gSplit, int m, int s) {
     //try theorem 2.8
     int x1, x2, y1, y2, z1, z2;
 
@@ -325,7 +282,6 @@ int gasarchSplit(int m, int s, struct MuffinSplit *gSplit) {
         }
     }
 
-
     //no match found
     //revert delta
     gSplit->deltNum = minDelt.denom - minDelt.num;
@@ -333,57 +289,144 @@ int gasarchSplit(int m, int s, struct MuffinSplit *gSplit) {
     return -1;
 }
 
-//print split based on paper
-void printSplit(struct MuffinSplit mSplit) {
+//figure stuff out using our paper
+struct Interval gasarchSplit(int m, int s, struct MuffinSplit *gSplit) {
 
+    struct Fraction minDelta = {1,s};
+    struct Fraction maxDelta = {1,1};
 
-    //warn for small deltas
-    if(((float)mSplit.deltNum)/mSplit.deltDenom < .33333 && mSplit.deltNum > 0) {
-        printf("(caution: delta less than 1/3) ");
+    printf("m: %d, s: %d\n", m, s);
+
+    gSplit->m = m;
+    gSplit->s = s;
+    gSplit->foundSplit = 0;
+    gSplit->specialCase = 0;
+
+    //special case that muffins divides students, our delt is going to
+    //be 1, set special case (for printing), and return noting that we
+    //found a split
+    if(m % s == 0) {
+        gSplit->deltNum = 1;
+        gSplit->deltDenom = 1;
+        gSplit->foundSplit = 1;
+        gSplit->specialCase = 1;
+
+        struct Fraction temp = {1,1};
+        struct Interval ret = {temp, temp};
+
+        return ret;
     }
 
-    printf("m: %d, modulo: %d, s: %d, ", mSplit.m, mSplit.m % mSplit.s, mSplit.s);
+    //thm 2.1.2
+    if(s % (2*m) == 0) {
+
+        gSplit->deltNum = 1;
+        gSplit->deltDenom = 2;
+        gSplit->foundSplit = 1;
+        gSplit->specialCase = 1;
+
+        struct Fraction temp = {1,2};
+        struct Interval ret = {temp, temp};
+
+        return ret;
+
+    }
+
+    //thm 2.1.4-5
+    if(m == 1 || m == 2 && s % 2 == 1) {
+        gSplit->deltNum = 1;
+        gSplit->deltDenom = s;
+        gSplit->foundSplit = 1;
+        gSplit->specialCase = 1;
+
+        struct Fraction temp = {1,s};
+        struct Interval ret = {temp, temp};
+
+        return ret;
+    }
+
+    double fracPart = 2*((float)m)/s;
+
+    //deltas based on 2.2.2
+    struct Fraction delt1 = {m, (s*ceil(fracPart))};
+    struct Fraction delt2 = {(s * floor(fracPart))-m, (s * floor(fracPart))};
+
+    //calc UB for small m/s
+    struct Fraction smallDeltUB = calcSmallDeltaUB(m, s);
+    maxDelta = fractionMin(maxDelta, smallDeltUB);
+
+
+    //calc LB for small m/s
+    int x = 0, y = 0;
+    struct Fraction smallDeltLB = calcSmallDeltaLB(m, s, &x, &y);
+    minDelta = fractionMax(minDelta, smallDeltLB);
+
+    struct Fraction minDelt = fractionMin(delt1, delt2);
+
+    //if small delta is less than 1/3, use it else keep delta from 2.2.2
+    if (fracToVal(smallDeltUB) < .33333 || fracToVal(minDelt) < .33333) {
+        printf("\t(caution: delta less than 1/3)\n");
+        minDelt = smallDeltUB;
+    }
+    maxDelta = fractionMin(maxDelta, minDelt);
+
+    printSmallDeltBound(fractionSimplify(smallDeltUB), fractionSimplify(smallDeltLB), x, y, m, s);
+
+    minDelt = fractionSimplify(minDelt);
+
+    int largeDeltOneUBStatus = calcLargeDeltOneUB(minDelt, gSplit, m, s);
+
+    if(largeDeltOneUBStatus == 0) {
+        minDelta = maxDelta;
+    }
+
+    maxDelta = fractionSimplify(maxDelta);
+    minDelta = fractionSimplify(minDelta);
+
+    struct Interval ret = {maxDelta, minDelta};
+
+    return ret;
+
+}
+
+//print split based on paper
+void printSplit(int m, int s, struct MuffinSplit mSplit) {
+
     if(mSplit.foundSplit == 0 ) {
-        printf("no possible combination found, delta:%d/%d\n", mSplit.deltNum, mSplit.deltDenom);
+        printf("\tdeltaUB: f(%d, %d) <= %d/%d\n", m, s, mSplit.deltNum, mSplit.deltDenom);
+        //printf("\tno possible combination found, delta:%d/%d\n", mSplit.deltNum, mSplit.deltDenom);
     } else if(mSplit.specialCase == 1) {
-        printf("delta: %d/%d\n", mSplit.deltNum, mSplit.deltDenom);
+
+        printf("\teasy: f(%d, %d) = %d/%d\n", m, s, mSplit.deltNum, mSplit.deltDenom);
     } else {
-        printf("x1: %d, x2: %d, y1: %d, y2: %d, z1: %d, z2: %d, delta: %d/%d\n", mSplit.x1, mSplit.x2, mSplit.y1, mSplit.y2, mSplit.z1, mSplit.z2, mSplit.deltNum, mSplit.deltDenom);
+        printf("\tdeltaLB: f(%d, %d) = %d/%d, x1: %d, x2: %d, y1: %d, y2: %d, z1: %d, z2: %d\n", m, s, mSplit.deltNum, mSplit.deltDenom, mSplit.x1, mSplit.x2, mSplit.y1, mSplit.y2, mSplit.z1, mSplit.z2);
     }
 }
 
 //calculate and print split based on our paper
 int calcAndPrintSplit(int m, int s) {
     struct MuffinSplit gSplit;
-    int status = gasarchSplit(m, s, &gSplit);
 
-    printSplit(gSplit);
-}
+    struct Interval interval = gasarchSplit(m, s, &gSplit);
+    struct Fraction maxDelta = interval.maxDelta;
+    struct Fraction minDelta = interval.minDelta;
 
-//print all cases from 1 to s*50
-int printAllCases(int s) {
-    struct MuffinSplit gSplit;
+    printSplit(m, s, gSplit);
 
-    int m;
-    for(m = 1; m < s*50; m++) {
-        int status = gasarchSplit(m, s, &gSplit);
-
-        printSplit(gSplit);
-
+    if(fractionEqual(maxDelta, minDelta)) {
+        printf("\tUPSHOT: f(%d, %d) =  %d/%d\n", m, s, maxDelta.num, maxDelta.denom);
+    } else {
+        printf("\tUPSHOT: %d/%d <= f(%d, %d) <= %d/%d\n", minDelta.num, minDelta.denom, m, s, maxDelta.num, maxDelta.denom);
     }
 }
 
-//only print failed cases
-int printFailModulos(int s) {
+//print all cases from 1 to s*50
+int printAllCases(int s, int a, int b) {
     struct MuffinSplit gSplit;
 
     int m;
-    for(m = s; m < s*50; m++) {
-        int status = gasarchSplit(m, s, &gSplit);
-
-        if (status == -1) {
-            printSplit(gSplit);
-        }
+    for(m = a; m <= b; m++) {
+        calcAndPrintSplit(m, s);
 
     }
 }
@@ -391,20 +434,27 @@ int printFailModulos(int s) {
 int main(int argc, char *argv[]) {
 
     //c's first arg is the prog name
-    if(argc != 3) {
+    if(argc == 3) {
 
-        printf("wrong number of arguments\n");
-        return -1;
+        //regular m muffins, s people
+        int m = atoi(argv[1]);
+        int s = atoi(argv[2]);
+        calcAndPrintSplit(m,s);
+    } else if (argc == 4) {
+
+        // runs cases m1 - m2 with s people
+        int s= atoi(argv[1]);
+        int m1 = atoi(argv[2]);
+        int m2 = atoi(argv[3]);
+        printAllCases(s, m1, m2);
     }
     //you could def override this to take variable # of args
 
     //read args as ints
-    int m = atoi(argv[1]);
-    int s = atoi(argv[2]);
+    // int m = atoi(argv[1]);
+    // int s = atoi(argv[2]);
 
 
-    calcAndPrintSplit(m,s);// prints for one case
+    //calcAndPrintSplit(m,s);// prints for one case
     //printAllCases(s); //prints for m= 1 - s*50 cases
-
-    //printFailModulos(s);
 }
