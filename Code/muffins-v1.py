@@ -5,7 +5,7 @@ def f(s,mi,ms,O):
     f = open(O, 'w')
     out = ""
     for m in range(mi,ms+1):
-        out += "m = "+str(m)+"\ns = "+str(s)+"\n"+str(fc(m, s))+"\n\n"
+        out += "m = "+str(m)+", s = "+str(s)+"\n"+str(fc(m, s))+"\n"
     f.write(out)
     f.close()
 
@@ -13,11 +13,11 @@ def f(s,mi,ms,O):
 def fc(m, s):
     #Easy cases (Theorem 0.1)
     if m%s == 0:
-        return "Easy case:\n1"
+        return "Easy case: 1\n"
     if s%(2*m) == 0 and int(m/s) != m/s:
-        return "Easy case:\n1/2"
+        return "Easy case: 1/2\n"
     if m == 1 or s%2 == 1 and m == 2:
-        return "Easy case:\n1/"+s
+        return "Easy case: 1/"+str(s)+"\n"
 
     #Not an easy case - try floor ceiling method
     #Assume f(m,s) > 1/3
@@ -49,7 +49,8 @@ def fc(m, s):
             z2 = (target-z1*xy[i][0][0])/xy[i][1][0]
             if z2 == int(z2):
                 z2 = int(z2)
-                axyz = [[xy[i][0][0],xy[i][0][1],z1],[xy[i][1][0],xy[i][1][1],z2]]
+                axyz = [[xy[i][0][0],xy[i][0][1],z1],\
+                        [xy[i][1][0],xy[i][1][1],z2]]
                 r1 = axyz[0][1]*f+Fraction(axyz[0][2],2)
                 r2 = axyz[1][1]*(1-f)+Fraction(axyz[1][2],2)
                 r3 = axyz[1][1]*f+Fraction(axyz[1][2],2)
@@ -66,7 +67,19 @@ def fc(m, s):
     xyz.reverse()
 
     if len(xyz) > 0:
-        return "Floor ceiling + delta1\n"+pformat(xyz)+"\n"+str(f.numerator)+"/"+str(f.denominator)
+        s = ""
+        for i in range(len(xyz)):
+            s+= "x1: "+str(xyz[i][0][0])+\
+                ", x2: "+str(xyz[i][1][0])+\
+                ", y1: "+str(xyz[i][0][1])+\
+                ", y2: "+str(xyz[i][1][1])+\
+                ", z1: "+str(xyz[i][0][2])+\
+                ", z2: "+str(xyz[i][1][2])+"\n"
+        if f >= 1/3:
+            return "Floor ceiling + delta1: f("+str(m)+"+, "+str(s)+") = "+str(f.numerator)+"/"+str(f.denominator)+"\n"+s
+        else:
+            return "Delta1: f("+str(m)+"+, "+str(s)+") >= "+str(f.numerator)+"/"+str(f.denominator)+"\n"+s\
+                   +"\nFloor ceiling method INCONCLUSIVE"
     
 
 def factor(n):
