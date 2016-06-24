@@ -95,7 +95,7 @@ def calcMin(muffins, students):
         if upperBound >= 1/3:
             return "Floor ceiling + delta1: f("+str(muffins)+", "+str(students)+") = "+str(upperBound.numerator)+"/"+str(upperBound.denominator)+"\n"+returnString
         else:
-            return "Delta1: f("+str(muffins)+"+, "+str(students)+") >= "+str(upperBound.numerator)+"/"+str(upperBound.denominator)+"\n"+returnString\
-                   +"\nFloor ceiling method INCONCLUSIVE"
-    
-f(3,1,5,"output.txt")
+            return "Delta1: f("+str(muffins)+", "+str(students)+") >= "+str(upperBound.numerator)+"/"+str(upperBound.denominator)+"\n"+returnString\
+                   +"Floor ceiling method INCONCLUSIVE\n"
+    else:
+        return "No x y z pairs could be found for the delta 1 method\n"

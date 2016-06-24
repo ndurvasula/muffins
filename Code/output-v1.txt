@@ -1,0 +1,104 @@
+m = 1, s = 5
+Easy case: 1/5
+
+m = 2, s = 5
+Easy case: 1/5
+
+m = 3, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 4, s = 5
+Delta1: f(4, 5) >= 1/5
+x1: 1, x2: 4, y1: 4, y2: 1, z1: 0, z2: 0
+Floor ceiling method INCONCLUSIVE
+
+m = 5, s = 5
+Easy case: 1
+
+m = 6, s = 5
+Floor ceiling + delta1: f(6, 5) = 2/5
+x1: 2, x2: 3, y1: 3, y2: 2, z1: 0, z2: 0
+
+m = 7, s = 5
+Delta1: f(7, 5) >= 3/10
+x1: 2, x2: 3, y1: 3, y2: 2, z1: 1, z2: 0
+Floor ceiling method INCONCLUSIVE
+
+m = 8, s = 5
+Floor ceiling + delta1: f(8, 5) = 2/5
+x1: 1, x2: 4, y1: 4, y2: 1, z1: 0, z2: 2
+
+m = 9, s = 5
+Floor ceiling + delta1: f(9, 5) = 2/5
+x1: 3, x2: 2, y1: 2, y2: 3, z1: 2, z2: 0
+
+m = 10, s = 5
+Easy case: 1
+
+m = 11, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 12, s = 5
+Floor ceiling + delta1: f(12, 5) = 2/5
+x1: 4, x2: 1, y1: 1, y2: 4, z1: 4, z2: 0
+x1: 2, x2: 3, y1: 6, y2: 4, z1: 0, z2: 0
+
+m = 13, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 14, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 15, s = 5
+Easy case: 1
+
+m = 16, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 17, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 18, s = 5
+Floor ceiling + delta1: f(18, 5) = 9/20
+x1: 1, x2: 4, y1: 8, y2: 2, z1: 0, z2: 5
+
+m = 19, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 20, s = 5
+Easy case: 1
+
+m = 21, s = 5
+Floor ceiling + delta1: f(21, 5) = 7/15
+x1: 2, x2: 3, y1: 9, y2: 6, z1: 0, z2: 2
+
+m = 22, s = 5
+Floor ceiling + delta1: f(22, 5) = 9/20
+x1: 4, x2: 1, y1: 2, y2: 8, z1: 7, z2: 0
+
+m = 23, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 24, s = 5
+Floor ceiling + delta1: f(24, 5) = 7/15
+x1: 3, x2: 2, y1: 6, y2: 9, z1: 4, z2: 0
+
+m = 25, s = 5
+Easy case: 1
+
+m = 26, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 27, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 28, s = 5
+Floor ceiling + delta1: f(28, 5) = 7/15
+x1: 1, x2: 4, y1: 12, y2: 3, z1: 0, z2: 8
+
+m = 29, s = 5
+No x y z pairs could be found for the delta 1 method
+
+m = 30, s = 5
+Easy case: 1
+
