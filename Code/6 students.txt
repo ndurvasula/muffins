@@ -1,0 +1,194 @@
+m = 1 (1 mod 6), s = 6
+Easy case: 1/2
+
+m = 5 (5 mod 6), s = 6
+Delta1: f(5, 6) >= 1/6
+x1: 2, x2: 4, y1: 2, y2: 1, z1: 1, z2: 0
+x1: 1, x2: 5, y1: 5, y2: 1, z1: 0, z2: 0
+Floor ceiling method INCONCLUSIVE
+
+m = 7 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+No x y z pairs could be found for the delta 2 method where delta2 = 4/9
+
+m = 11 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(11, 6) = 7/18
+d2: 4/9, x1: 2, x2: 2, x3: 0, x4: 2, y11: 1, y12: 1, y21: 2, y22: 1, y31: 0, y32: 3, y41: 3, y42: 0, z1: 2, z2: 1, z3: 1, z4: 0
+d2: 4/9, x1: 0, x2: 3, x3: 1, x4: 2, y11: 1, y12: 1, y21: 2, y22: 1, y31: 0, y32: 3, y41: 3, y42: 0, z1: 2, z2: 1, z3: 1, z4: 0
+
+m = 13 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(13, 6) = 13/30
+d2: 7/15, x1: 2, x2: 0, x3: 2, x4: 2, y11: 5, y12: 0, y21: 5, y22: 0, y31: 3, y32: 1, y41: 2, y42: 1, z1: 0, z2: 0, z3: 0, z4: 1
+d2: 7/15, x1: 1, x2: 1, x3: 2, x4: 2, y11: 5, y12: 0, y21: 5, y22: 0, y31: 3, y32: 1, y41: 2, y42: 1, z1: 0, z2: 0, z3: 0, z4: 1
+d2: 7/15, x1: 0, x2: 2, x3: 2, x4: 2, y11: 5, y12: 0, y21: 5, y22: 0, y31: 3, y32: 1, y41: 2, y42: 1, z1: 0, z2: 0, z3: 0, z4: 1
+
+m = 17 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(17, 6) = 13/30
+d2: 7/15, x1: 2, x2: 2, x3: 0, x4: 2, y11: 2, y12: 1, y21: 3, y22: 1, y31: 0, y32: 5, y41: 5, y42: 0, z1: 3, z2: 2, z3: 1, z4: 0
+
+m = 19 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(19, 6) = 19/42
+d2: 10/21, x1: 2, x2: 0, x3: 2, x4: 2, y11: 7, y12: 0, y21: 7, y22: 0, y31: 4, y32: 1, y41: 3, y42: 1, z1: 0, z2: 0, z3: 1, z4: 2
+d2: 10/21, x1: 1, x2: 1, x3: 2, x4: 2, y11: 7, y12: 0, y21: 7, y22: 0, y31: 4, y32: 1, y41: 3, y42: 1, z1: 0, z2: 0, z3: 1, z4: 2
+d2: 10/21, x1: 0, x2: 2, x3: 2, x4: 2, y11: 7, y12: 0, y21: 7, y22: 0, y31: 4, y32: 1, y41: 3, y42: 1, z1: 0, z2: 0, z3: 1, z4: 2
+
+m = 23 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(23, 6) = 19/42
+d2: 10/21, x1: 2, x2: 2, x3: 0, x4: 2, y11: 3, y12: 1, y21: 4, y22: 1, y31: 0, y32: 7, y41: 7, y42: 0, z1: 4, z2: 3, z3: 1, z4: 0
+
+m = 25 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(25, 6) = 25/54
+d2: 13/27, x1: 2, x2: 0, x3: 2, x4: 2, y11: 9, y12: 0, y21: 9, y22: 0, y31: 5, y32: 1, y41: 4, y42: 1, z1: 0, z2: 0, z3: 2, z4: 3
+d2: 13/27, x1: 1, x2: 1, x3: 2, x4: 2, y11: 9, y12: 0, y21: 9, y22: 0, y31: 5, y32: 1, y41: 4, y42: 1, z1: 0, z2: 0, z3: 2, z4: 3
+d2: 13/27, x1: 0, x2: 2, x3: 2, x4: 2, y11: 9, y12: 0, y21: 9, y22: 0, y31: 5, y32: 1, y41: 4, y42: 1, z1: 0, z2: 0, z3: 2, z4: 3
+
+m = 29 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(29, 6) = 25/54
+d2: 13/27, x1: 2, x2: 2, x3: 0, x4: 2, y11: 4, y12: 1, y21: 5, y22: 1, y31: 0, y32: 9, y41: 9, y42: 0, z1: 5, z2: 4, z3: 1, z4: 0
+
+m = 31 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(31, 6) = 31/66
+d2: 16/33, x1: 2, x2: 0, x3: 2, x4: 2, y11: 11, y12: 0, y21: 11, y22: 0, y31: 6, y32: 1, y41: 5, y42: 1, z1: 0, z2: 0, z3: 3, z4: 4
+d2: 16/33, x1: 1, x2: 1, x3: 2, x4: 2, y11: 11, y12: 0, y21: 11, y22: 0, y31: 6, y32: 1, y41: 5, y42: 1, z1: 0, z2: 0, z3: 3, z4: 4
+d2: 16/33, x1: 0, x2: 2, x3: 2, x4: 2, y11: 11, y12: 0, y21: 11, y22: 0, y31: 6, y32: 1, y41: 5, y42: 1, z1: 0, z2: 0, z3: 3, z4: 4
+
+m = 35 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(35, 6) = 31/66
+d2: 16/33, x1: 2, x2: 2, x3: 0, x4: 2, y11: 5, y12: 1, y21: 6, y22: 1, y31: 0, y32: 11, y41: 11, y42: 0, z1: 6, z2: 5, z3: 1, z4: 0
+
+m = 37 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(37, 6) = 37/78
+d2: 19/39, x1: 2, x2: 0, x3: 2, x4: 2, y11: 13, y12: 0, y21: 13, y22: 0, y31: 7, y32: 1, y41: 6, y42: 1, z1: 0, z2: 0, z3: 4, z4: 5
+d2: 19/39, x1: 1, x2: 1, x3: 2, x4: 2, y11: 13, y12: 0, y21: 13, y22: 0, y31: 7, y32: 1, y41: 6, y42: 1, z1: 0, z2: 0, z3: 4, z4: 5
+d2: 19/39, x1: 0, x2: 2, x3: 2, x4: 2, y11: 13, y12: 0, y21: 13, y22: 0, y31: 7, y32: 1, y41: 6, y42: 1, z1: 0, z2: 0, z3: 4, z4: 5
+
+m = 41 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(41, 6) = 37/78
+d2: 19/39, x1: 2, x2: 2, x3: 0, x4: 2, y11: 6, y12: 1, y21: 7, y22: 1, y31: 0, y32: 13, y41: 13, y42: 0, z1: 7, z2: 6, z3: 1, z4: 0
+
+m = 43 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(43, 6) = 43/90
+d2: 22/45, x1: 2, x2: 0, x3: 2, x4: 2, y11: 15, y12: 0, y21: 15, y22: 0, y31: 8, y32: 1, y41: 7, y42: 1, z1: 0, z2: 0, z3: 5, z4: 6
+d2: 22/45, x1: 1, x2: 1, x3: 2, x4: 2, y11: 15, y12: 0, y21: 15, y22: 0, y31: 8, y32: 1, y41: 7, y42: 1, z1: 0, z2: 0, z3: 5, z4: 6
+d2: 22/45, x1: 0, x2: 2, x3: 2, x4: 2, y11: 15, y12: 0, y21: 15, y22: 0, y31: 8, y32: 1, y41: 7, y42: 1, z1: 0, z2: 0, z3: 5, z4: 6
+
+m = 47 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(47, 6) = 43/90
+d2: 22/45, x1: 2, x2: 2, x3: 0, x4: 2, y11: 7, y12: 1, y21: 8, y22: 1, y31: 0, y32: 15, y41: 15, y42: 0, z1: 8, z2: 7, z3: 1, z4: 0
+
+m = 49 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(49, 6) = 49/102
+d2: 25/51, x1: 2, x2: 0, x3: 2, x4: 2, y11: 17, y12: 0, y21: 17, y22: 0, y31: 9, y32: 1, y41: 8, y42: 1, z1: 0, z2: 0, z3: 6, z4: 7
+d2: 25/51, x1: 1, x2: 1, x3: 2, x4: 2, y11: 17, y12: 0, y21: 17, y22: 0, y31: 9, y32: 1, y41: 8, y42: 1, z1: 0, z2: 0, z3: 6, z4: 7
+d2: 25/51, x1: 0, x2: 2, x3: 2, x4: 2, y11: 17, y12: 0, y21: 17, y22: 0, y31: 9, y32: 1, y41: 8, y42: 1, z1: 0, z2: 0, z3: 6, z4: 7
+
+m = 53 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(53, 6) = 49/102
+d2: 25/51, x1: 2, x2: 2, x3: 0, x4: 2, y11: 8, y12: 1, y21: 9, y22: 1, y31: 0, y32: 17, y41: 17, y42: 0, z1: 9, z2: 8, z3: 1, z4: 0
+
+m = 55 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(55, 6) = 55/114
+d2: 28/57, x1: 2, x2: 0, x3: 2, x4: 2, y11: 19, y12: 0, y21: 19, y22: 0, y31: 10, y32: 1, y41: 9, y42: 1, z1: 0, z2: 0, z3: 7, z4: 8
+d2: 28/57, x1: 1, x2: 1, x3: 2, x4: 2, y11: 19, y12: 0, y21: 19, y22: 0, y31: 10, y32: 1, y41: 9, y42: 1, z1: 0, z2: 0, z3: 7, z4: 8
+d2: 28/57, x1: 0, x2: 2, x3: 2, x4: 2, y11: 19, y12: 0, y21: 19, y22: 0, y31: 10, y32: 1, y41: 9, y42: 1, z1: 0, z2: 0, z3: 7, z4: 8
+
+m = 59 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(59, 6) = 55/114
+d2: 28/57, x1: 2, x2: 2, x3: 0, x4: 2, y11: 9, y12: 1, y21: 10, y22: 1, y31: 0, y32: 19, y41: 19, y42: 0, z1: 10, z2: 9, z3: 1, z4: 0
+
+m = 61 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(61, 6) = 61/126
+d2: 31/63, x1: 2, x2: 0, x3: 2, x4: 2, y11: 21, y12: 0, y21: 21, y22: 0, y31: 11, y32: 1, y41: 10, y42: 1, z1: 0, z2: 0, z3: 8, z4: 9
+d2: 31/63, x1: 1, x2: 1, x3: 2, x4: 2, y11: 21, y12: 0, y21: 21, y22: 0, y31: 11, y32: 1, y41: 10, y42: 1, z1: 0, z2: 0, z3: 8, z4: 9
+d2: 31/63, x1: 0, x2: 2, x3: 2, x4: 2, y11: 21, y12: 0, y21: 21, y22: 0, y31: 11, y32: 1, y41: 10, y42: 1, z1: 0, z2: 0, z3: 8, z4: 9
+
+m = 65 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(65, 6) = 61/126
+d2: 31/63, x1: 2, x2: 2, x3: 0, x4: 2, y11: 10, y12: 1, y21: 11, y22: 1, y31: 0, y32: 21, y41: 21, y42: 0, z1: 11, z2: 10, z3: 1, z4: 0
+
+m = 67 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(67, 6) = 67/138
+d2: 34/69, x1: 2, x2: 0, x3: 2, x4: 2, y11: 23, y12: 0, y21: 23, y22: 0, y31: 12, y32: 1, y41: 11, y42: 1, z1: 0, z2: 0, z3: 9, z4: 10
+d2: 34/69, x1: 1, x2: 1, x3: 2, x4: 2, y11: 23, y12: 0, y21: 23, y22: 0, y31: 12, y32: 1, y41: 11, y42: 1, z1: 0, z2: 0, z3: 9, z4: 10
+d2: 34/69, x1: 0, x2: 2, x3: 2, x4: 2, y11: 23, y12: 0, y21: 23, y22: 0, y31: 12, y32: 1, y41: 11, y42: 1, z1: 0, z2: 0, z3: 9, z4: 10
+
+m = 71 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(71, 6) = 67/138
+d2: 34/69, x1: 2, x2: 2, x3: 0, x4: 2, y11: 11, y12: 1, y21: 12, y22: 1, y31: 0, y32: 23, y41: 23, y42: 0, z1: 12, z2: 11, z3: 1, z4: 0
+
+m = 73 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(73, 6) = 73/150
+d2: 37/75, x1: 2, x2: 0, x3: 2, x4: 2, y11: 25, y12: 0, y21: 25, y22: 0, y31: 13, y32: 1, y41: 12, y42: 1, z1: 0, z2: 0, z3: 10, z4: 11
+d2: 37/75, x1: 1, x2: 1, x3: 2, x4: 2, y11: 25, y12: 0, y21: 25, y22: 0, y31: 13, y32: 1, y41: 12, y42: 1, z1: 0, z2: 0, z3: 10, z4: 11
+d2: 37/75, x1: 0, x2: 2, x3: 2, x4: 2, y11: 25, y12: 0, y21: 25, y22: 0, y31: 13, y32: 1, y41: 12, y42: 1, z1: 0, z2: 0, z3: 10, z4: 11
+
+m = 77 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(77, 6) = 73/150
+d2: 37/75, x1: 2, x2: 2, x3: 0, x4: 2, y11: 12, y12: 1, y21: 13, y22: 1, y31: 0, y32: 25, y41: 25, y42: 0, z1: 13, z2: 12, z3: 1, z4: 0
+
+m = 79 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(79, 6) = 79/162
+d2: 40/81, x1: 2, x2: 0, x3: 2, x4: 2, y11: 27, y12: 0, y21: 27, y22: 0, y31: 14, y32: 1, y41: 13, y42: 1, z1: 0, z2: 0, z3: 11, z4: 12
+d2: 40/81, x1: 1, x2: 1, x3: 2, x4: 2, y11: 27, y12: 0, y21: 27, y22: 0, y31: 14, y32: 1, y41: 13, y42: 1, z1: 0, z2: 0, z3: 11, z4: 12
+d2: 40/81, x1: 0, x2: 2, x3: 2, x4: 2, y11: 27, y12: 0, y21: 27, y22: 0, y31: 14, y32: 1, y41: 13, y42: 1, z1: 0, z2: 0, z3: 11, z4: 12
+
+m = 83 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(83, 6) = 79/162
+d2: 40/81, x1: 2, x2: 2, x3: 0, x4: 2, y11: 13, y12: 1, y21: 14, y22: 1, y31: 0, y32: 27, y41: 27, y42: 0, z1: 14, z2: 13, z3: 1, z4: 0
+
+m = 85 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(85, 6) = 85/174
+d2: 43/87, x1: 2, x2: 0, x3: 2, x4: 2, y11: 29, y12: 0, y21: 29, y22: 0, y31: 15, y32: 1, y41: 14, y42: 1, z1: 0, z2: 0, z3: 12, z4: 13
+d2: 43/87, x1: 1, x2: 1, x3: 2, x4: 2, y11: 29, y12: 0, y21: 29, y22: 0, y31: 15, y32: 1, y41: 14, y42: 1, z1: 0, z2: 0, z3: 12, z4: 13
+d2: 43/87, x1: 0, x2: 2, x3: 2, x4: 2, y11: 29, y12: 0, y21: 29, y22: 0, y31: 15, y32: 1, y41: 14, y42: 1, z1: 0, z2: 0, z3: 12, z4: 13
+
+m = 89 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(89, 6) = 85/174
+d2: 43/87, x1: 2, x2: 2, x3: 0, x4: 2, y11: 14, y12: 1, y21: 15, y22: 1, y31: 0, y32: 29, y41: 29, y42: 0, z1: 15, z2: 14, z3: 1, z4: 0
+
+m = 91 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(91, 6) = 91/186
+d2: 46/93, x1: 2, x2: 0, x3: 2, x4: 2, y11: 31, y12: 0, y21: 31, y22: 0, y31: 16, y32: 1, y41: 15, y42: 1, z1: 0, z2: 0, z3: 13, z4: 14
+d2: 46/93, x1: 1, x2: 1, x3: 2, x4: 2, y11: 31, y12: 0, y21: 31, y22: 0, y31: 16, y32: 1, y41: 15, y42: 1, z1: 0, z2: 0, z3: 13, z4: 14
+d2: 46/93, x1: 0, x2: 2, x3: 2, x4: 2, y11: 31, y12: 0, y21: 31, y22: 0, y31: 16, y32: 1, y41: 15, y42: 1, z1: 0, z2: 0, z3: 13, z4: 14
+
+m = 95 (5 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(95, 6) = 91/186
+d2: 46/93, x1: 2, x2: 2, x3: 0, x4: 2, y11: 15, y12: 1, y21: 16, y22: 1, y31: 0, y32: 31, y41: 31, y42: 0, z1: 16, z2: 15, z3: 1, z4: 0
+
+m = 97 (1 mod 6), s = 6
+No x y z pairs could be found for the delta 1 method
+Floor ceiling + delta2: f(97, 6) = 97/198
+d2: 49/99, x1: 2, x2: 0, x3: 2, x4: 2, y11: 33, y12: 0, y21: 33, y22: 0, y31: 17, y32: 1, y41: 16, y42: 1, z1: 0, z2: 0, z3: 14, z4: 15
+d2: 49/99, x1: 1, x2: 1, x3: 2, x4: 2, y11: 33, y12: 0, y21: 33, y22: 0, y31: 17, y32: 1, y41: 16, y42: 1, z1: 0, z2: 0, z3: 14, z4: 15
+d2: 49/99, x1: 0, x2: 2, x3: 2, x4: 2, y11: 33, y12: 0, y21: 33, y22: 0, y31: 17, y32: 1, y41: 16, y42: 1, z1: 0, z2: 0, z3: 14, z4: 15
+
