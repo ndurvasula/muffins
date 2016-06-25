@@ -1,4 +1,5 @@
-from fractions import *
+
+m fractions import *
 from math import *
 from pprint import *
 def f(s,mi,ms,O):
