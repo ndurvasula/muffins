@@ -1,5 +1,5 @@
 
-m fractions import *
+from fractions import *
 from math import *
 from pprint import *
 def f(s,mi,ms,O):
@@ -196,5 +196,4 @@ def factor(n):
                 res.append((i,j))
     return res
         
-    
     
