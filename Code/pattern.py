@@ -55,12 +55,12 @@ for i in range(1,3):
 	partZero = results[0]
 	partOne = results[1]
 
-	num = 0
+	num = 0 
 	for i in range(0,len(partZero)):
-		print(partZero[i],end=" ")
+		print(partZero[i],end="\t")
 		num+=1
-		if(i%partOne[0] == 0):
-			print()
+		if(num%partOne[0] == 0):
+			print("\n")
 
 
 	print(partOne)
