@@ -7,7 +7,8 @@ def findPattern(seq):
 	bestWorks = []
 	listOf = []
 	#Try every mod pattern from 2...len(seq)^.5
-	for mod in range(2,int((len(seq)+1)**.5)+1):
+	for mod in range(2,int((len(seq)+1)**.5)+2):
+		print(mod)
 		#Get the base values
 		bases = []
 		for i in range(0,mod):
@@ -23,11 +24,10 @@ def findPattern(seq):
 				listOf.append(False)
 			else:
 				listOf.append(True)
-		if(works.count(True)/mod>bestNum):
-			bestNum = works.count(True)/mod
+		if(works.count(True)/attempts>bestNum):
+			bestNum = works.count(True)/attempts
 			best = mod
-			bestWorks = works
-	
+			bestWorks = works	
 
 	j = []
 	
@@ -40,18 +40,20 @@ def findPattern(seq):
 
 def muffinsWork(students,muffinStart,muffinEnd,num):
 	j = []
-	for i in range(muffinStart,muffinEnd+1):
+	for i in range(muffinStart,muffinEnd):
 		j.append("No x y z pairs could be found for the delta "+str(num) not in fc(i,students))
-	return findPattern(j)
+	return j#findPattern(j)
 
 studentNumber = int(input("How many students? "))
 startValue = int(input("Muffin start? "))
 endValue = int(input("Muffin end? "))
 
+modNumber = int(input("What mod number? "))
+
 for i in range(1,3):
 	print("Currently working for delta "+str(i))
-	results = muffinsWork(studentNumber,startValue,endValue,1)	
-
+	results = muffinsWork(studentNumber,startValue,endValue,i)	
+	'''
 	partZero = results[0]
 	partOne = results[1]
 
@@ -60,9 +62,17 @@ for i in range(1,3):
 		print(partZero[i],end="\t")
 		num+=1
 		if(num%partOne[0] == 0):
-			print("\n")
+			print()
+	'''
 
+	num = 0
+	for i in range(0,len(results)):
+		if(results[i]):
+			results[i] = 'T'
+		else:
+			results[i] = 'F'
+		print(results[i],end=" ")
+		if((i+1)%modNumber == 0 ):
+			print()
 
-	print(partOne)
-
-
+	print()
