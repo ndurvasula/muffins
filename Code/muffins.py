@@ -1,3 +1,4 @@
+
 from fractions import *
 from math import *
 from pprint import *
@@ -195,5 +196,4 @@ def factor(n):
                 res.append((i,j))
     return res
         
-    
     
